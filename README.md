@@ -37,5 +37,7 @@
 # How to use
 
   You can classify a new skin image using the saved model like this:
+  
   Download resnet50_skin_classifier.pth and main.py
+  
   Then run the main.py using streamlit run main.py
