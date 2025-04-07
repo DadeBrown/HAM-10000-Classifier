@@ -1,0 +1,10 @@
+streamlit
+pytorch
+OpenCV/CV2
+sklearn
+pandas
+numpy
+Pillow Library/PIL
+imblearn
+seaborn
+matplotlib
