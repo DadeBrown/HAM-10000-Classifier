@@ -1,1 +1,1 @@
-# HAM-1000-Classifier
+# Skin Lesion Classifier to Detect Skin Cancer
