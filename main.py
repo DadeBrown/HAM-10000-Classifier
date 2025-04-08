@@ -69,12 +69,14 @@ def preprocess_image(image, contrast=1.0, sharpness=1.0):
 label_map = {0: 'akiec', 1: 'bcc', 2: 'bkl', 3: 'df', 4: 'mel', 5: 'nv', 6: 'vasc'}
 
 # Database setup
-conn = sqlite3.connect('users.db')
+db_path = os.path.join(os.path.dirname(__file__), 'users.db')
+conn = sqlite3.connect('db_path')
 c = conn.cursor()
 
 # Backup old history data
-c.execute('''CREATE TABLE IF NOT EXISTS history_backup AS SELECT * FROM history''')
-conn.commit()
+c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='history'")
+if c.fetchone():
+    c.execute('''CREATE TABLE IF NOT EXISTS history_backup AS SELECT * FROM history''')
 
 # Recreate history table
 c.execute('''DROP TABLE IF EXISTS history''')
